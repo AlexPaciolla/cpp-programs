@@ -1,3 +1,5 @@
+//PROGRAMMA ANCORA IN FASE DI SVILUPPO, VERRA' FATTO L'UPLOAD DEL PROGRAMMA COSTANTEMENTE
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
