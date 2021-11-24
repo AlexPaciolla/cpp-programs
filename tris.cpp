@@ -74,6 +74,8 @@ int main(){
 					if(a==' '){			//se la casella è vuota
 						a=player;		//metti il simbolo in questione in quella casella
 						repeat=false;	//non far ripetere il ciclo
+					}else{
+						repeat=true;
 					}
 
 					break;
@@ -81,6 +83,8 @@ int main(){
 					if(b==' '){
 						b=player;
 						repeat=false;
+					}else{
+						repeat=true;
 					}
 
 					break;
@@ -88,6 +92,8 @@ int main(){
 					if(c==' '){
 						c=player;
 						repeat=false;
+					}else{
+						repeat=true;
 					}
 
 					break;
@@ -95,6 +101,8 @@ int main(){
 					if(d==' '){
 						d=player;
 						repeat=false;
+					}else{
+						repeat=true;
 					}
 
 					break;
@@ -102,6 +110,8 @@ int main(){
 					if(e==' '){
 						e=player;
 						repeat=false;
+					}else{
+						repeat=true;
 					}
 
 					break;
@@ -109,6 +119,8 @@ int main(){
 					if(f==' '){
 						f=player;
 						repeat=false;
+					}else{
+						repeat=true;
 					}
 
 					break;
@@ -116,6 +128,8 @@ int main(){
 					if(g==' '){
 						g=player;
 						repeat=false;
+					}else{
+						repeat=true;
 					}
 
 					break;
@@ -123,6 +137,8 @@ int main(){
 					if(h==' '){
 						h=player;
 						repeat=false;
+					}else{
+						repeat=true;
 					}
 
 					break;
@@ -130,18 +146,21 @@ int main(){
 					if(i==' '){
 						i=player;
 						repeat=false;
+					}else{
+						repeat=true;
 					}
 
 					break;
+
 			}
 
 
-			if(repeat!=false){//se la casella è occupata
+			if(repeat==true){//se la casella è occupata
 				printf("La casella scelta e' gia' occuppata, inserisci il tuo simbolo in un'altra casella: ");//da un feedback all'utente
 			}
 
 		}
-		while(casella<'a'||casella>'i'||repeat!=false);//controllo dell'input della casella che permette il reinserimeto in caso questa sia occupata o inesistente
+		while(casella<'a'||casella>'i'||repeat==true);//controllo dell'input della casella che permette il reinserimeto in caso questa sia occupata o inesistente
 
 
 		match++;
