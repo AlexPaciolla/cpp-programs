@@ -11,7 +11,7 @@
 #include <stdio.h>
 
 int main(){
-	char a=' ';//le seguenti sono caselle, inizializzate come vuote
+	char a=' ';	//le seguenti sono caselle, inizializzate come vuote
 	char b=' ';
 	char c=' ';
 	char d=' ';
@@ -21,11 +21,10 @@ int main(){
 	char h=' ';
 	char i=' ';
 
-//	char num_players;//si decide se giocare contro il computer o contro un altro giocatore
-	char player;//prende il valore di X o di O
-	char casella;//casella in cui l'utente decide di inserire il suo simbolo
-	int match=1;//numero di turni del gioco. quando viene superato il 9 viene messa fine al game loop
-	bool repeat=true;/*variabile utilizzata per il controllo dell'input, inizializzata come NON FALSA, per far ripetere il ciclo nel caso in cui venisse inserita una casella occupata*/
+	char player;		//prende il valore di X o di O
+	char casella;		//casella in cui l'utente decide di inserire il suo simbolo
+	int match=1;		//numero di turni del gioco. quando viene superato il 9 viene messa fine al game loop
+	bool repeat=true;	//variabile utilizzata per il controllo dell'input, inizializzata come NON FALSA, per far ripetere il ciclo nel caso in cui venisse inserita una casella occupata
 
 
 	printf("Ricorda di inserire le caselle come lettere minuscole durante il gioco!\n\n");
@@ -61,20 +60,20 @@ int main(){
 
 		do
 		{
-			scanf(" %c",&casella);//ricezione della casella in cui si vuole mettere il proprio simbolo
+			scanf(" %c",&casella);													//ricezione della casella in cui si vuole mettere il proprio simbolo
 
-			if(casella>'i'||casella<'a')//se la casella e' inesistente
+			if(casella>'i'||casella<'a')											//se la casella e' inesistente
 			{
-				printf("La casella inserita non esiste, inseriscine una valida: ");//da un feedback all'utente
+				printf("La casella inserita non esiste, inseriscine una valida: ");	//da un feedback all'utente
 			}
 
 
 			switch(casella)//controllo che la casella sia libera e compilazione della casella
 			{
-				case 'a'://ogi caso ha la stessa struttura:
-					if(a==' '){//se la casella è vuota
-						a=player;//metti il simbolo in questione in quella casella
-						repeat=false;//non far ripetere il ciclo
+				case 'a':				//ogni caso ha la stessa struttura:
+					if(a==' '){			//se la casella è vuota
+						a=player;		//metti il simbolo in questione in quella casella
+						repeat=false;	//non far ripetere il ciclo
 					}
 
 					break;
