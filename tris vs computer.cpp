@@ -24,23 +24,24 @@ int main(){
 
 	srand(time(NULL));
 
+	system("color f0");
 
 	do
 	{
 		printf("Vuoi giocare come giocatore X o come giocatore O? ");	//si decide che simbolo si vuole usare, il giocatore X inizia sempre per primo
 		scanf(" %c",&symbol);
 
-		if(symbol!='X'&&symbol!='O'){
+		if(symbol!='X'&&symbol!='O'&&symbol!='x'&&symbol!='o'){
 			printf("Il simbolo puo' essere solo X oppure O\n");			//se il simbolo è diverso da X o da O si da un feedback all'utente
 		}
 	}
-	while(symbol!='X'&&symbol!='O');									//si consente il reinserimento
-
+	while(symbol!='X'&&symbol!='O'&&symbol!='x'&&symbol!='o');			//si consente il reinserimento
 
 
 	switch(symbol)
 	{
 		case 'O':	//il computer inizia per primo
+		case 'o':
 
 			while(match<=9)//fino all'esaurimento dei turni
 			{
@@ -311,6 +312,7 @@ int main(){
 			break;
 
 		case 'X':
+		case 'x':
 
 			while(match<=9)//fino all'esaurimento dei turni
 			{
@@ -333,101 +335,106 @@ int main(){
 				{
 					player='O';
 
-					casella=(rand()%9)+'a';
+					do{
 
-					switch(casella)//controllo che la casella sia libera e compilazione della casella
-					{
-						case 'a':
-						case 'A':				//ogni caso ha la stessa struttura:
-							if(a==' '){			//se la casella è vuota
-								a=player;		//metti il simbolo in questione in quella casella
-								repeat=false;	//non far ripetere il ciclo
-							}else{
-								repeat=true;
-							}
+						casella=(rand()%9)+'a';
 
-							break;
-						case 'b':
-						case 'B':
-							if(b==' '){
-								b=player;
-								repeat=false;
-							}else{
-								repeat=true;
-							}
+						switch(casella)//controllo che la casella sia libera e compilazione della casella
+						{
+							case 'a':
+							case 'A':				//ogni caso ha la stessa struttura:
+								if(a==' '){			//se la casella è vuota
+									a=player;		//metti il simbolo in questione in quella casella
+									repeat=false;	//non far ripetere il ciclo
+								}else{
+									repeat=true;
+								}
 
-							break;
-						case 'c':
-						case 'C':
-							if(c==' '){
-								c=player;
-								repeat=false;
-							}else{
-								repeat=true;
-							}
+								break;
+							case 'b':
+							case 'B':
+								if(b==' '){
+									b=player;
+									repeat=false;
+								}else{
+									repeat=true;
+								}
 
-							break;
-						case 'd':
-						case 'D':
-							if(d==' '){
-								d=player;
-								repeat=false;
-							}else{
-								repeat=true;
-							}
+								break;
+							case 'c':
+							case 'C':
+								if(c==' '){
+									c=player;
+									repeat=false;
+								}else{
+									repeat=true;
+								}
 
-							break;
-						case 'e':
-						case 'E':
-							if(e==' '){
-								e=player;
-								repeat=false;
-							}else{
-								repeat=true;
-							}
+								break;
+							case 'd':
+							case 'D':
+								if(d==' '){
+									d=player;
+									repeat=false;
+								}else{
+									repeat=true;
+								}
 
-							break;
-						case 'f':
-						case 'F':
-							if(f==' '){
-								f=player;
-								repeat=false;
-							}else{
-								repeat=true;
-							}
+								break;
+							case 'e':
+							case 'E':
+								if(e==' '){
+									e=player;
+									repeat=false;
+								}else{
+									repeat=true;
+								}
 
-							break;
-						case 'g':
-						case 'G':
-							if(g==' '){
-								g=player;
-								repeat=false;
-							}else{
-								repeat=true;
-							}
+								break;
+							case 'f':
+							case 'F':
+								if(f==' '){
+									f=player;
+									repeat=false;
+								}else{
+									repeat=true;
+								}
 
-							break;
-						case 'h':
-						case 'H':
-							if(h==' '){
-								h=player;
-								repeat=false;
-							}else{
-								repeat=true;
-							}
+								break;
+							case 'g':
+							case 'G':
+								if(g==' '){
+									g=player;
+									repeat=false;
+								}else{
+									repeat=true;
+								}
 
-							break;
-						case 'i':
-						case 'I':
-							if(i==' '){
-								i=player;
-								repeat=false;
-							}else{
-								repeat=true;
-							}
+								break;
+							case 'h':
+							case 'H':
+								if(h==' '){
+									h=player;
+									repeat=false;
+								}else{
+									repeat=true;
+								}
 
-							break;
-					}//fine dello switch
+								break;
+							case 'i':
+							case 'I':
+								if(i==' '){
+									i=player;
+									repeat=false;
+								}else{
+									repeat=true;
+								}
+
+								break;
+						}//fine dello switch
+
+					}
+					while(repeat==true);
 				}
 				else//turno dell'utente
 				{
