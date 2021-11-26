@@ -3,13 +3,14 @@
 	Copyright: none
 	Author: Alex Paciolla, prendendo la base del codice dal precedente programma "rougelike c++.cpp"
 	Date: 26/11/21 19:55
-	Description: Esperimento sulla funzione Sleep() e sulla stampa di matrici quadratiche (rimasta attualmente incompresa)
+	Description: Esperimento sulla funzione Sleep(x) e sleep(x) e sulla stampa di matrici quadratiche (rimasta attualmente incompresa).
+				 Due simboli si muovono sulla mappa diagonalmente all'infinito
 */
 
 
 #include <iostream>
-#include <windows.h>
-#include <winable.h>
+#include <unistd.h>		//per usare sleep(x)
+#include <windows.h>	//per usare Sleep(x)
 
 using namespace std;
 
@@ -25,7 +26,7 @@ char map[W][H];
 void init_map(){
 	for(auto y=0; y<H; y++) {
 		for(auto x=0; x<W; x++) {
-			map[y][x]=' ';
+			map[x][y]='.';			//map[y][x] oppure map[x][y] ??? E' la stessa cosa?
 		}
 	}
 }
@@ -125,7 +126,8 @@ int main (){
 			a.x=0;
 		}
 
-		Sleep(100);
+//		sleep(1);//crea un delay di 1 secondo (la funzione è inclusa in unistd.h)
+		Sleep(100);//crea un delay di 100 millisecondi (la funzione è inclusa in windows.h)
 	}
 
 
