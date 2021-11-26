@@ -2,8 +2,14 @@
 	Name: 	FINAL TRIS
 	Copyright: none
 	Author: Alex Paciolla, con la collaborazione di Andrea Brambilla
-	Date: 25/11/21 08:54
+	Date: 25/11/21 18:54
 	Description: Software che permette di giocare a Tris, sia in player vs player, sia contro il computer, con diversi gradi di difficoltà
+*/
+
+/*
+  PURTROPPO NON HO ANCORA SVILUPPATO UNA VERSIONE INTELLIGENTE DEL GIOCO AUTOMATIZZATA, CI STO ATTUALMENTE LAVORANDO. 
+  FINO AD ALLORA HO INSERITO UNA VERSIONE AUTOMATIZZATA DEL GIOCO CHE TUTTAVIA RISULTA ESSERE DECISAMENTE FACILE,
+  IN QUANTO ESSA SI BASA SULLA SCELTA COMPLETAMENTE CASUALE DELLE CASELLE.
 */
 
 
