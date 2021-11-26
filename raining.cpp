@@ -1,3 +1,12 @@
+/*
+	Name: raining
+	Copyright: none
+	Author: Alex Paciolla, prendendo la base del codice dal precedente programma "rougelike c++.cpp"
+	Date: 26/11/21 19:55
+	Description: Esperimento sulla funzione Sleep() e sulla stampa di matrici quadratiche (rimasta attualmente incompresa)
+*/
+
+
 #include <iostream>
 #include <windows.h>
 #include <winable.h>
