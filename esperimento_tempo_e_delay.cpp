@@ -4,7 +4,6 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-#include <time.h>
 
 using namespace std;
 
@@ -54,7 +53,6 @@ int main() {
 			}
 		}
 
-		clock();
 	}
 	while(a<30000000000);	//si riesce a leggere un numero di tipo intero di 11 cifre (possibile?!)
 
