@@ -3,7 +3,7 @@
 	Copyright: none
 	Author: Alex Paciolla, prendendo la base del codice dal precedente programma "rougelike c++.cpp"
 	Date: 26/11/21 19:55
-	Description: Esperimento sulla funzione Sleep(x) e sleep(x) e sulla stampa di matrici quadratiche (rimasta attualmente incompresa).
+	Description: Esperimento sulla funzione Sleep(x) e sleep(x) e sulla stampa di matrici quadratiche (rimasta attualmente parzialmente compresa).
 				 Due simboli si muovono sulla mappa diagonalmente all'infinito
 */
 
@@ -16,8 +16,9 @@ using namespace std;
 
 
 //larghezza e lunghezza della mappa del gioco
-constexpr auto W=30;
-constexpr auto H=20;
+constexpr auto W=30;	//l'espressione "auto" è incompresa
+constexpr auto H=20;	//anche l'espressione "constexpr" è incompresa
+						//	è diversa da "const"?
 
 char map[W][H];
 
