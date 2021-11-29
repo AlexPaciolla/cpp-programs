@@ -11,6 +11,26 @@
 #include <stdio.h>
 #include <time.h>
 
+//funzione per la stampa del nome del gioco e per la stampa di una mappa campione
+void interfaccia(){
+	printf("\n");
+	printf("	|-------| |------|  -|-  |------|\n");
+	printf("	    |     |      |   |   |       \n");
+	printf("	    |     |------|   |   |------|\n");
+	printf("	    |     |   |      |          |\n");
+	printf("	   _|_    |    _|_  _|_  |------|\n");
+	printf("\n");
+	printf("Ricorda di inserire le caselle come lettere minuscole...");
+	printf("\n\n");
+	printf("	 A | B | C \n");//stampa di una mappa campione
+	printf("	-----------\n");
+	printf(" 	 D | E | F \n");
+	printf("	-----------\n");
+	printf(" 	 G | H | I \n");
+	printf("\n");
+}
+
+
 int main(){
 	srand(time(NULL));
 
@@ -41,8 +61,6 @@ int main(){
 		printf("	    |     |------|   |   |------|\n");
 		printf("	    |     |   |      |          |\n");
 		printf("	   _|_    |    _|_  _|_  |------|\n");
-
-
 
 		printf("\nRicorda di inserire le caselle come lettere minuscole durante il gioco!\n\n");
 
@@ -90,16 +108,11 @@ int main(){
 				while(symbol!='X'&&symbol!='O');			//si consente il reinserimento
 				//IL SIMBOLO è STATO SCELTO
 
+				system("cls");
 
 				while(match<=9)
 				{
-					printf("Ricorda di inserire le caselle come lettere minuscole...");
-					printf("\n\n	 A | B | C\n");//stampa di una mappa campione
-					printf("	-----------\n");
-					printf(" 	 D | E | F\n");
-					printf("	-----------\n");
-					printf(" 	 G | H | I\n\n");
-
+					interfaccia();
 
 					printf("\n\n	 %c | %c | %c\n",a,b,c);//stampa della mappa attuale
 					printf("	-----------\n");
@@ -328,12 +341,6 @@ int main(){
 
 					system("cls");//pulizia dello schermo
 
-					printf("	|-------| |------|  -|-  |------|\n");
-					printf("	    |     |      |   |   |       \n");
-					printf("	    |     |------|   |   |------|\n");
-					printf("	    |     |   |      |          |\n");
-					printf("	   _|_    |    _|_  _|_  |------|\n\n");
-
 					match++;//aggiornamento della mossa
 
 
@@ -358,15 +365,12 @@ int main(){
 				break;
 
 			case '2':
+
+				system("cls");
+
 				while(match<=9)//inizio del loop di gioco
 				{
-					printf("Ricorda di inserire le caselle come lettere minuscole...");
-					printf("\n\n	 A | B | C\n");//stampaa di una mappa campione
-					printf("	-----------\n");
-					printf(" 	 D | E | F\n");
-					printf("	-----------\n");
-					printf(" 	 G | H | I\n\n");
-
+					interfaccia();
 
 					printf("\n\n	 %c | %c | %c\n",a,b,c);//stampa della mappa attuale
 					printf("	-----------\n");
@@ -498,14 +502,9 @@ int main(){
 
 					system("cls");
 
-					printf("	|-------| |------|  -|-  |------|\n");
-					printf("	    |     |      |   |   |       \n");
-					printf("	    |     |------|   |   |------|\n");
-					printf("	    |     |   |      |          |\n");
-					printf("	   _|_    |    _|_  _|_  |------|\n\n");
-
 
 					//stabilire il vincitore
+					//per stabilire il vincitore vengono attualmente elencati tutti i casi possibili
 					if((a=='O'&&b=='O'&&c=='O')||(d=='O'&&e=='O'&&f=='O')||(g=='O'&&h=='O'&&i=='O')||(a=='O'&&d=='O'&&g=='O')||(b=='O'&&e=='O'&&h=='O')||(c=='O'&&f=='O'&&i=='O')||(a=='O'&&e=='O'&&i=='O')||(c=='O'&&e=='O'&&g=='O'))
 					{
 						printf("Il giocatore O ha vinto!");
