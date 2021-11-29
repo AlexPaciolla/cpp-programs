@@ -26,10 +26,10 @@ int main(){
 		char h=' ';
 		char i=' ';
 
-		char num_players;
-		bool running;
-		char symbol;
-		char retry;
+		char num_players;	//se viene assegnato come valore 1 si gioca contro il computer, altrimenti si gioca contro un altro giocatore
+		char difficulty;	//scelta della difficoltà tra facile e media
+		char symbol;		//nel caso in cui ci sia solo un giocatore, si decide se far iniziare per primo il computer o no
+		char retry;   		//alla fine della partita ne viene richiesto l'inserimento per proccedere con l'inizio di una nuova partita
 		char player;		//prende il valore di X o di O
 		char casella;		//casella in cui l'utente decide di inserire il suo simbolo
 		int match=1;		//numero di turni del gioco. quando viene superato il 9 viene messa fine al game loop
@@ -62,6 +62,19 @@ int main(){
 		switch(num_players)
 		{
 			case '1':
+				//SCELTA DELLA DIFFICOLTA' A CUI SI VUOLE GIOCARE
+				do
+				{
+					printf("\nSeleziona la difficolta':\n	f	facile\n	m	media\n\nA che difficolta' vuoi giocare? ");
+					scanf(" %c",&difficulty);
+
+					if(difficulty!='f'&&difficulty!='m')
+					{
+						printf("Grado di difficoltà non riconosciuto.");
+					}
+				}
+				while(difficulty!='f'&&difficulty!='m');
+
 				//SCELTA DEL SIMBOLO CON CUI SI VUOLE GIOCARE
 				//La X inizia per prima in qualsiasi partita
 				do
@@ -80,6 +93,7 @@ int main(){
 
 				while(match<=9)
 				{
+					printf("Ricorda di inserire le caselle come lettere minuscole...");
 					printf("\n\n	 A | B | C\n");//stampa di una mappa campione
 					printf("	-----------\n");
 					printf(" 	 D | E | F\n");
@@ -102,7 +116,7 @@ int main(){
 					do
 					{
 
-						if((match%2==1&&symbol=='X')||(match%2==0&&symbol=='O'))
+						if((match%2==1&&symbol=='X')||(match%2==0&&symbol=='O'))	//SCELTA DELLA CASELLA DA PARTE DELL'UTENTE
 						{
 							if(symbol=='X')
 							{
@@ -120,7 +134,7 @@ int main(){
 								printf("La casella inserita non esiste, inseriscine una valida: ");	//da un feedback all'utente
 							}
 						}
-						else
+						else														//SCELTA DELLA CASELLA DA PARTE DEL COMPUTER
 						{
 							if(symbol=='O')
 							{
@@ -131,7 +145,89 @@ int main(){
 								player='O';
 							}
 
-							casella=(rand()%9)+'a';
+							if(difficulty=='f')
+							{
+								//SCELTA DELLA CASELLA IN MODO COMPLETAMENTE CASUALE
+								casella=(rand()%9)+'a';
+							}
+							else if(difficulty=='m')
+							{
+								//SCELTA DELLA CASELLA """INTELLIGENTE"""
+								//LA SCELTA INTELLIGENTE DELLA CASELLA E' ATTUALMENTE IN FASE DI PROGRAMMAZIONE
+								//Il frammento di codice seguente prende in considerazione tutti i casi possibili,
+								//	verrà presto pubblicato il codice programmato con array bidimensionali e con
+								//  un conseguente aumento della chiarezza del codice.
+								if(a==b&&b!=' '){
+									casella='c';
+								}else if(a==c&&c!=' '&&b==' '){
+									casella='b';
+								}else if(c==b&&b!=' '&&a==' '){
+									casella='a';
+								}else if(e==f&&f!=' '&&d==' '){
+									casella='d';
+								}else if(e==d&&d!=' '&&f==' '){
+									casella='f';
+								}else if(f==d&&d!=' '&&e==' '){
+									casella='e';
+								}else if(g==h&&h!=' '&&i==' '){
+									casella='i';
+								}else if(g==i&&i!=' '&&h==' '){
+									casella='h';
+								}else if(i==h&&h!=' '&&g==' '){
+									casella='g';
+								}else if(a==i&&i!=' '&&e==' '){
+									casella='e';
+								}else if(a==e&&e!=' '&&i==' '){
+									casella='i';
+								}else if(i==e&&e!=' '&&a==' '){
+									casella='a';
+								}else if(c==e&&e!=' '&&g==' '){
+									casella='g';
+								}else if(c==g&&g!=' '&&e==' '){
+									casella='e';
+								}else if(e==g&&g!=' '&&c==' '){
+									casella='c';
+								}else if(a==d&&d!=' '&&g==' '){
+									casella='g';
+								}else if(a==g&&g!=' '&&d==' '){
+									casella='d';
+								}else if(d==g&&g!=' '&&a==' '){
+									casella='a';
+								}else if(b==e&&e!=' '&&h==' '){
+									casella='h';
+								}else if(b==h&&h!=' '&&e==' '){
+									casella='e';
+								}else if(e==h&&h!=' '&&b==' '){
+									casella='b';
+								}else if(c==f&&f!=' '&&i==' '){
+									casella='i';
+								}else if(c==i&&i!=' '&&f==' '){
+									casella='f';
+								}else if(f==i&&i!=' '&&c==' '){
+									casella='c';
+								}else if(symbol=='O'&&a==' '){
+									casella='a';
+								}else if(symbol=='O'&&c==' '){
+									casella='c';
+								}else if(symbol=='O'&&g==' '){
+									casella='g';
+								}else if(symbol=='O'&&i==' '){
+									casella='i';
+								}else if(e==' '){
+									casella='e';
+								}else if(b==' '){
+									casella='b';
+								}else if(d==' '){
+									casella='d';
+								}else if(h==' '){
+									casella='h';
+								}else if(f==' '){
+									casella='f';
+								}else{
+									casella=(rand()%9)+'a';
+								}
+							}
+
 						}
 
 
@@ -232,6 +328,12 @@ int main(){
 
 					system("cls");//pulizia dello schermo
 
+					printf("	|-------| |------|  -|-  |------|\n");
+					printf("	    |     |      |   |   |       \n");
+					printf("	    |     |------|   |   |------|\n");
+					printf("	    |     |   |      |          |\n");
+					printf("	   _|_    |    _|_  _|_  |------|\n\n");
+
 					match++;//aggiornamento della mossa
 
 
@@ -258,6 +360,7 @@ int main(){
 			case '2':
 				while(match<=9)//inizio del loop di gioco
 				{
+					printf("Ricorda di inserire le caselle come lettere minuscole...");
 					printf("\n\n	 A | B | C\n");//stampaa di una mappa campione
 					printf("	-----------\n");
 					printf(" 	 D | E | F\n");
@@ -395,6 +498,12 @@ int main(){
 
 					system("cls");
 
+					printf("	|-------| |------|  -|-  |------|\n");
+					printf("	    |     |      |   |   |       \n");
+					printf("	    |     |------|   |   |------|\n");
+					printf("	    |     |   |      |          |\n");
+					printf("	   _|_    |    _|_  _|_  |------|\n\n");
+
 
 					//stabilire il vincitore
 					if((a=='O'&&b=='O'&&c=='O')||(d=='O'&&e=='O'&&f=='O')||(g=='O'&&h=='O'&&i=='O')||(a=='O'&&d=='O'&&g=='O')||(b=='O'&&e=='O'&&h=='O')||(c=='O'&&f=='O'&&i=='O')||(a=='O'&&e=='O'&&i=='O')||(c=='O'&&e=='O'&&g=='O'))
@@ -422,7 +531,7 @@ int main(){
 		printf(" 	 %c | %c | %c\n\n",g,h,i);
 
 
-		printf("Premi un tasto per continuare, poi premi invio...");
+		printf("Inserisci un carattere per continuare, poi premi invio...");
 		scanf(" %c",&retry);
 
 		system("cls");
