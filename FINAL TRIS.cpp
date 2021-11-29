@@ -14,9 +14,7 @@
 int main(){
 	srand(time(NULL));
 
-	bool running=true;
-
-	while(running==true)
+	while(true)
 	{
 		char a=' ';	//le seguenti sono caselle, inizializzate come vuote
 		char b=' ';
@@ -424,7 +422,7 @@ int main(){
 		printf(" 	 %c | %c | %c\n\n",g,h,i);
 
 
-		printf("Premi un tasto per continuare...");
+		printf("Premi un tasto per continuare, poi premi invio...");
 		scanf(" %c",&retry);
 
 		system("cls");

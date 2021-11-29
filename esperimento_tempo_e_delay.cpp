@@ -14,14 +14,14 @@ int main() {
 
 	//le due seguenti funzioni sono unioni delle funzioni incluse nelle librerie chrono e thread
     sleep_for(nanoseconds(10));						//la funzione sleep for viene da thread, la funzione nanoseconds deriva da chrono
-	//								  l'utilizzo simultaneo di queste funzioni consente di attivare una diversa versione
-	//								  della funzione comunemente conosciuta come Sleep(), inclusa in windows.h,
-	//								  con la possibilità di utilizzare unità di misura differenti da.
+	//												  l'utilizzo simultaneo di queste funzioni consente di attivare una diversa versione
+	//												  della funzione comunemente conosciuta come Sleep(), inclusa in windows.h,
+	//												  con la possibilità di utilizzare unità di misura differenti da.
 
     sleep_until(system_clock::now() + seconds(1));	//sarebbe interessante l'approfondimento della funzione system_clock, che è mi attualmente sconosciuta
-    
+
     int a=1;
-	
+
 	do
 	{
 		a++;

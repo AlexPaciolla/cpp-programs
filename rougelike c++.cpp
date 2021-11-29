@@ -6,12 +6,14 @@
 	Author: Alex Paciolla
 
 	Description: videogioco di tipo rougelike, programmato seguendo parzialmente i tutorial
-				del prof. Andrea Polini (video su Youtube).
-				Link al primo video della serie:
+				 del prof. Andrea Polini (video su Youtube).
+				 Link al primo video della serie:
 					https://www.youtube.com/watch?v=0OR-p3l_ipQ
 */
 
 /*****************************************************************************************************************************/
+
+//!!! IL GIOCO E' ATTUALMENTE INCOMPLETO, VERRA' FATTO L'UPLOAD DEI PRGRESSI CON COSTANZA !!!
 
 #include <iostream>
 
@@ -36,9 +38,9 @@ void init_map(){
 
 
 //limitare la mobilità del personaggio all'interno dello schermo
-void clamp(int& value, int min_value, int max_value){
-	if (value <= min_value){
-		value = min_value;
+void clamp(int& value, int min_value, int max_value){	//come mai è stata messa la & ?
+	if (value <= min_value){							//	questa & è probabilmente il motivo della mia difficoltà
+		value = min_value;								//	nel costruire una clamp per i muri
 		return;
 	}
 	if (value >= max_value){
@@ -78,7 +80,7 @@ char comand_prompt(){
 /*****************************************************************************************************************************/
 
 
-//Ready Player 1
+//Inizio della fase di gioco
 //(game)
 int main (){
 
@@ -86,21 +88,11 @@ int main (){
 	entity ghost{40,20,'#'};
 	entity hero{2,20,'@'};
 
-	entity wall1{0,0,'|'};
-	entity wall2{0,0,'-'};
-
 
 	int score=0;
 	int tries=3;
 
 	bool running = true;
-
-
-
-	//limitazione del movimento all'interno dei muri
-	//NON FUNZIONA
-	clamp(hero.x, wall1.x-1, wall1.x+1);
-	clamp(hero.y, wall2.y-1, wall2.y+1);
 
 
 	//fase di gioco
@@ -220,7 +212,7 @@ int main (){
 				hero.x=W/2;
 				hero.y=H/2;
 
-				tries=tries-1;
+				tries--;
 			}
 			else
 			{
@@ -257,10 +249,19 @@ int main (){
 TO DO:
 
 	bisogna creare una clamp efficace per i muri
+		*** la clamp per i muri è resa difficile dal fatto che la variabile "int &value", dichiarata nella funzione "clamp",
+			sia stata dichiarata come pointer al posto di una variabile normale. Bisognerebbe approfondire il concetto di
+			pointer ***
 
 		bisogna trovare un modo più efficace per disegnare la mappa
+		*** bisogna ridefinire l'inizializzazione della mappa ***
 
-			creare il gioco
+			mettere l'input della direzione come facoltativo al posto di dover sempre aspettare che qusto venga inserito
+			*** per questo bisogna approfondire l'utilizzo delle funzioni di tempo: per esempio si potrebbe apettare qualche
+				decimo di secondo e, se non venisse inserito niente, il comando resterebbe il precedente, altrimenti
+				diverrebbe il comando appena inserito. ***
+
+				creare il gioco
 
 */
 

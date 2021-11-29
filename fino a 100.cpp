@@ -60,7 +60,7 @@ int main(){
 				printf("\nIl computer ha scelto %d\n",cmp);	//output della scelta presa dal computer
 				
 				tot=tot+cmp;								//calcolo del totale a seguito dell'inserimento
-				printf("\nIl totale e' di %d\n",tot);			//output del totale
+				printf("\nIl totale e' di %d\n",tot);		//output del totale
 				
 				if(tot<100)									//per evitare che una volta raggiunto il 100 venga nuovamente richiesto all'utente di inserire il suo numero
 				{
