@@ -3,7 +3,7 @@
 	Copyright: none
 	Author: Alex Paciolla, prendendo la base del codice dal precedente programma "rougelike c++.cpp"
 	Date: 26/11/21 19:55
-	Description: Esperimento sulla funzione Sleep(x) e sleep(x) e sulla stampa di matrici quadratiche (rimasta attualmente parzialmente compresa).
+	Description: Esperimento sulla funzione Sleep(x) e sleep(x) e sulla stampa di matrici quadratiche.
 				 Due simboli si muovono sulla mappa diagonalmente all'infinito
 */
 
@@ -34,7 +34,7 @@ void init_map(){
 
 
 //limitare la mobilità del personaggio all'interno dello schermo
-void clamp(int& value, int min_value, int max_value){
+void clamp(int& value, int min_value, int max_value){ 	//perchè viene utilizzato l'indirizzo di memoria di value e non value??
 	if (value <= min_value){
 		value = min_value;
 		return;

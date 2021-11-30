@@ -40,15 +40,22 @@ int UserInput()
 //INIZIO DEL GIOCO
 
 int main(){
+	char regole;		//stampa le regole del gioco
 	int usr;			//numero scelto dall'utente
 	int cmp=1;			//numero scelto dal computer
 	int tot=0;			//somma di tutti i numeri
 	int random;			//variabile casuale per stabilire chi inizia
 	int contatore=0;	//contatore, che permette di creare il numero che permette all'utente di perdere
-	
+
+	printf("Benvenuto! Conosci gia' le regole?");
+	scanf("%c",&regole);
+
+	switch()
+
+
 	srand(time(NULL));
 	random=rand()%2;
-	
+
 	switch(random)
 	{
 		case 0:
