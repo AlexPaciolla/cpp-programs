@@ -12,7 +12,8 @@
 #include <time.h>
 
 //funzione per la stampa del nome del gioco e per la stampa di una mappa campione
-void interfaccia(){
+void interfaccia()
+{
 	printf("\n");
 	printf("	|-------| |------|  -|-  |------|\n");
 	printf("	    |     |      |   |   |       \n");
@@ -49,13 +50,12 @@ int main(){
 		char num_players;	//se viene assegnato come valore 1 si gioca contro il computer, altrimenti si gioca contro un altro giocatore
 		char difficulty;	//scelta della difficoltà tra facile e media
 		char symbol;		//nel caso in cui ci sia solo un giocatore, si decide se far iniziare per primo il computer o no
-		char retry;   		//alla fine della partita ne viene richiesto l'inserimento per proccedere con l'inizio di una nuova partita
 		char player;		//prende il valore di X o di O
 		char casella;		//casella in cui l'utente decide di inserire il suo simbolo
 		int match=1;		//numero di turni del gioco. quando viene superato il 9 viene messa fine al game loop
 		bool repeat=true;	//variabile utilizzata per il controllo dell'input, inizializzata come NON FALSA, per far ripetere il ciclo nel caso in cui venisse inserita una casella occupata
 
-
+		printf("\n");
 		printf("	|-------| |------|  -|-  |------|\n");
 		printf("	    |     |      |   |   |       \n");
 		printf("	    |     |------|   |   |------|\n");
@@ -529,9 +529,7 @@ int main(){
 		printf("	-----------\n");
 		printf(" 	 %c | %c | %c\n\n",g,h,i);
 
-
-		printf("Inserisci un carattere per continuare, poi premi invio...");
-		scanf(" %c",&retry);
+		system("pause");
 
 		system("cls");
 	}
