@@ -14,13 +14,14 @@
 //funzione per la stampa del nome del gioco e per la stampa di una mappa campione
 void interfaccia()
 {
+	printf("	 _______   ______   _   ______\n");
+	printf("	|__   __| |  __  | | | |  ____|\n");
+	printf("	   | |    | |__| | | | | |____\n");
+	printf("	   | |    |  _  _| | | |____  |\n");
+	printf("	   | |    | | | |  | |  ____| |\n");
+	printf("	   |_|    |_|  |_| |_| |______|\n");
 	printf("\n");
-	printf("	|-------| |------|  -|-  |------|\n");
-	printf("	    |     |      |   |   |       \n");
-	printf("	    |     |------|   |   |------|\n");
-	printf("	    |     |   |      |          |\n");
-	printf("	   _|_    |    _|_  _|_  |------|\n");
-	printf("\n");
+	
 	printf("Ricorda di inserire le caselle come lettere minuscole...");
 	printf("\n\n");
 	printf("	 A | B | C \n");//stampa di una mappa campione
@@ -53,14 +54,15 @@ int main(){
 		char player;		//prende il valore di X o di O
 		char casella;		//casella in cui l'utente decide di inserire il suo simbolo
 		int match=1;		//numero di turni del gioco. quando viene superato il 9 viene messa fine al game loop
+		int computer_choice;//variabile casuale che stabilisce se far fare sempre la mossa migliore al computer
 		bool repeat=true;	//variabile utilizzata per il controllo dell'input, inizializzata come NON FALSA, per far ripetere il ciclo nel caso in cui venisse inserita una casella occupata
 
-		printf("\n");
-		printf("	|-------| |------|  -|-  |------|\n");
-		printf("	    |     |      |   |   |       \n");
-		printf("	    |     |------|   |   |------|\n");
-		printf("	    |     |   |      |          |\n");
-		printf("	   _|_    |    _|_  _|_  |------|\n");
+		printf("	 _______   ______   _   ______ \n");
+		printf("	|__   __| |  __  | | | |  ____|\n");
+		printf("	   | |    | |__| | | | | |____ \n");
+		printf("	   | |    |  _  _| | | |____  |\n");
+		printf("	   | |    | | | |  | |  ____| |\n");
+		printf("	   |_|    |_|  |_| |_| |______|\n");
 
 		printf("\nRicorda di inserire le caselle come lettere minuscole durante il gioco!\n\n");
 
@@ -170,6 +172,9 @@ int main(){
 								//Il frammento di codice seguente prende in considerazione tutti i casi possibili,
 								//	verrà presto pubblicato il codice programmato con array bidimensionali e con
 								//  un conseguente aumento della chiarezza del codice.
+								
+								computer_choice=rand()%3;
+								
 								if(a==b&&b!=' '){
 									casella='c';
 								}else if(a==c&&c!=' '&&b==' '){
@@ -226,9 +231,9 @@ int main(){
 									casella='g';
 								}else if(symbol=='O'&&i==' '){
 									casella='i';
-								}else if(e==' '){
-									casella='e';
-								}else if(b==' '){
+								}else if((computer_choice==1||computer_choice==2)&&e==' '){ //computer choice è una variabile casuale che stabilisce
+									casella='e';                     						//se occupare una casella vincente, facendo in modo che la partita
+								}else if(b==' '){                   				        //vada in pareggio, oppure mettere il proprio simbolo in un'altra casella
 									casella='b';
 								}else if(d==' '){
 									casella='d';
@@ -347,17 +352,17 @@ int main(){
 					//stabilire il vincitore
 					if((a=='O'&&b=='O'&&c=='O')||(d=='O'&&e=='O'&&f=='O')||(g=='O'&&h=='O'&&i=='O')||(a=='O'&&d=='O'&&g=='O')||(b=='O'&&e=='O'&&h=='O')||(c=='O'&&f=='O'&&i=='O')||(a=='O'&&e=='O'&&i=='O')||(c=='O'&&e=='O'&&g=='O'))
 					{
-						printf("Il giocatore O ha vinto!");
+						printf("\n  Il giocatore O ha vinto!");
 						match+=9;//per uscire dal loop di gioco
 					}
 					else if((a=='X'&&b=='X'&&c=='X')||(d=='X'&&e=='X'&&f=='X')||(g=='X'&&h=='X'&&i=='X')||(a=='X'&&d=='X'&&g=='X')||(b=='X'&&e=='X'&&h=='X')||(c=='X'&&f=='X'&&i=='X')||(a=='X'&&e=='X'&&i=='X')||(c=='X'&&e=='X'&&g=='X'))
 					{
-						printf("Il giocatore X ha vinto!");
+						printf("\n  Il giocatore X ha vinto!");
 						match+=9;//per uscire dal loop di gioco
 					}
 					else if(match>9)
 					{
-						printf("Abbiamo un pareggio!");
+						printf("\n  Abbiamo un pareggio!");
 					}
 
 				}
